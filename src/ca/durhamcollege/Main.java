@@ -37,6 +37,22 @@ public class Main
 
     }
 
+    public  static void printLog(int[] log)
+    {
+        for (var line:log)
+        {
+            System.out.println(line);
+        }
+    }
+
+    public  static void printLog(float[] log)
+    {
+        for (var line:log)
+        {
+            System.out.println(line);
+        }
+    }
+
     public  static void printLog(String[] log)
     {
         for (var line:log)
@@ -45,12 +61,60 @@ public class Main
         }
     }
 
+    public  static void buildLog(int[] log)
+    {
+        for (int i = 0; i < Config.NUM_OF_INTEGERS; i++)
+        {
+            //String className = log[i].getClass().getSimpleName();
+            String prompt = "Enter your integer: ";
+            log[i] = (int) getConsoleInput(prompt, log[i]);
+        }
+    }
+
+    public  static void buildLog(float[] log)
+    {
+        for (int i = 0; i < Config.NUM_OF_FLOATS; i++)
+        {
+            //String className = log[i].getClass().getSimpleName();
+            String prompt = "Enter your float: ";
+            log[i] = (float) getConsoleInput(prompt, log[i]);
+        }
+    }
+
+    public  static void buildLog(String[] log)
+    {
+        for (int i = 0; i < Config.NUM_OF_STRINGS; i++)
+        {
+            //String className = log[i].getClass().getSimpleName();
+            String prompt = "Enter your String: ";
+            log[i] = (String) getConsoleInput(prompt, log[i]);
+        }
+    }
+
+
     /**
      * Entry point for our application
      * @param args
      */
     public static void main(String[] args)
     {
+        String[] stringLog = new String[Config.NUM_OF_STRINGS];
+        int[] intLog = new int[Config.NUM_OF_INTEGERS];
+        float[] floatLog = new float[Config.NUM_OF_FLOATS];
+
+        buildLog(intLog);
+        printLog(intLog);
+        System.out.println();
+
+        buildLog(floatLog);
+        printLog(floatLog);
+        System.out.println();
+
+        buildLog(stringLog);
+        printLog(stringLog);
+        System.out.println();
+
+
 /*
         // Step 1. Creating an empty space/container for the collection
 	    String[] log = new String[Config.NUM_OF_STRINGS];
@@ -61,7 +125,7 @@ public class Main
         }
         printLog(log);
 
- */
+
         int intNumber = 0;
         float floatNumber = 0.0f;
         String stringInput = "";
@@ -74,6 +138,8 @@ public class Main
 
         floatNumber = (float) getConsoleInput("Enter an Integer: ", floatNumber);
         System.out.println("Our Integer is: " + floatNumber);
+*/
+
 
     }
 }
